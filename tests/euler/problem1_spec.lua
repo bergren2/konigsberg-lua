@@ -1,5 +1,4 @@
-package.path = "/Users/bergren2/Workspaces/konigsberg-lua/euler/?.lua;" .. package.path
-local problem1 = require "problem1"
+local problem1 = require "euler/problem1"
 
 describe("Problem 1", function ()
   it("calculates sum of all the multiples of 3 or 5 below 10", function ()
