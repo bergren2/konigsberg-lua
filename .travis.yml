@@ -2,9 +2,11 @@ language: erlang
 branches:
   only:
     - master
-install:
+before_install:
   - sudo apt-get install luarocks
   - sudo luarocks install busted
-script: busted tests
+  - sudo luarocks install luacov-coveralls
+script: busted -c tests
+after_success: luacov-coveralls
 notifications:
   email: false
