@@ -19,7 +19,6 @@ jobs:
           luarocks install busted
           luarocks install luacov-coveralls
 
-      - name: Run tests
-        run: busted tests --coverage --Xoutput "--color"
+      - run: busted tests --coverage --Xoutput "--color"
 
-      - uses: coverallsapp/github-action@v2
+      - run: luacov-coveralls
