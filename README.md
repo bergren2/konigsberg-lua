@@ -24,3 +24,8 @@ luarocks install busted
 ```shell
 busted tests
 ```
+
+Use the following if the formatting looks off in your terminal:
+```shell
+busted tests -o plainTerminal
+```
