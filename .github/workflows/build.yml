@@ -12,5 +12,7 @@ jobs:
 
       - name: Run tests
         uses: lunarmodules/busted@v2.1.2
+        with:
+          args: --coverage
 
       - uses: coverallsapp/github-action@v2
