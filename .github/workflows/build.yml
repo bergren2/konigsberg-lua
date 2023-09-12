@@ -1,0 +1,27 @@
+name: build
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: leafo/gh-actions-lua@v10
+
+      - uses: leafo/gh-actions-luarocks@v4
+
+      - name: Install dependencies
+        run: |
+          luarocks install busted
+          luarocks install luacov-coveralls
+
+      - name: Run tests w/ coverage
+        run: busted tests --coverage --Xoutput "--color"
+
+      - run: luacov-coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{secrets.COVERALLS_REPO_TOKEN}}
