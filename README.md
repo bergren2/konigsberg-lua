@@ -5,9 +5,22 @@
 
 ## Setup
 
-    $ brew bundle
-    $ luarocks install busted
+### macOS
+
+```shell
+brew bundle
+luarocks install busted
+```
+
+### Windows
+
+```shell
+scoop install lua luarocks mingw
+luarocks install busted
+```
 
 ## Tests
 
-    $ busted tests
+```shell
+busted tests
+```
