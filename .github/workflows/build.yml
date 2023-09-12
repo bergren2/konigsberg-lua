@@ -17,10 +17,9 @@ jobs:
       - name: Install dependencies
         run: |
           luarocks install busted
-          luarocks install luacov
+          luarocks install luacov-coveralls
 
-      - run: busted tests --coverage --Xoutput "--color"
+      - name: Run tests w/ coverage
+        run: busted tests --coverage --Xoutput "--color"
 
-      - uses: coverallsapp/github-action@v2
-        with:
-          file: luacov.stats.out
+      - run: luacov-coveralls
